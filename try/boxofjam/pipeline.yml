@@ -1,0 +1,14 @@
+---
+resources:
+  - name: resource-boxofjam
+    type: git
+    source:
+      uri: https://github.com/ianhomer/boxofjam.git
+      branch: master
+jobs:
+  - name: job-build
+    public: true
+    plan:
+      - get: resource-boxofjam
+      - task: build-npm
+        file: resource-boxofjam/concourse.yml
