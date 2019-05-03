@@ -19,7 +19,13 @@ jobs:
         source: {repository: node}
       inputs:
         - name: resource-boxofjam
+      caches:
+        - path: resource-boxofjam/node_modules
       run:
-        path: ls
-        args: ['-al']
-        
+        path: sh
+        dir: resource-boxofjam
+        args:
+          - -exc
+          - |
+            npm i
+
