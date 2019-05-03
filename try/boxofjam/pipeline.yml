@@ -11,4 +11,14 @@ jobs:
     plan:
       - get: resource-boxofjam
       - task: build-npm
-        file: resource-boxofjam/concourse.yml
+        config:
+          platform: linux
+          caches:
+            - path: resource-boxofjam/node_modules
+          run:
+            path: sh
+            dir: resource-boxofjam
+            args:
+              - -exc
+              - |
+                npm i
