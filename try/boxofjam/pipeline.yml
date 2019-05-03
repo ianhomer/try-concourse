@@ -1,24 +1,25 @@
 ---
 resources:
-  - name: resource-boxofjam
-    type: git
-    source:
-      uri: https://github.com/ianhomer/boxofjam.git
-      branch: master
+- name: resource-boxofjam
+  type: git
+  source:
+    uri: https://github.com/ianhomer/boxofjam.git
+    branch: master
+
 jobs:
-  - name: job-build
-    public: true
-    plan:
-      - get: resource-boxofjam
-      - task: build-npm
-        config:
-          platform: linux
-          caches:
-            - path: resource-boxofjam/node_modules
-          run:
-            path: sh
-            dir: resource-boxofjam
-            args:
-              - -exc
-              - |
-                npm i
+- name: job-build
+  public: true
+  plan:
+  - get: resource-boxofjam
+  - task: build-npm
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: node}
+      inputs:
+        - name: resource-boxofjam
+      run:
+        path: ls
+        args: ['-al']
+        
