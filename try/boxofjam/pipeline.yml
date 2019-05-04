@@ -15,10 +15,8 @@ jobs:
     config:
       platform: linux
       image_resource:
-        type: docker-image
-        source:
-          repository: node
-          tag: latest
+        type: registry-image
+        source: { repository: node, tag: "8" }
       inputs:
         - name: resource-boxofjam
       caches:
@@ -29,6 +27,8 @@ jobs:
         args:
           - -exc
           - |
+            node --version
+            npm --version
             npm i
             npm run build
 
