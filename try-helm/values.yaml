@@ -1,0 +1,5 @@
+service:
+  labels: try-concourse
+
+worker:
+  replicas: 1
