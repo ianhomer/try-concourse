@@ -7,7 +7,7 @@
 
 # tl;dr
 
-    helm install --name try-concourse -f values.yaml stable/concourse  
+    helm install --name try-concourse -f values.yaml stable/concourse
     
 Routing for port 8080
 
@@ -34,8 +34,10 @@ Show persistent volumes
 # Clean up 
 
     helm delete try-concourse
-    kubectl delete pvc -l app=try-concourse-worker
-
+    
+    kubectl delete namespaces try-concourse-main
+    
+    `
 # thanks
 
 * https://github.com/helm/charts/tree/master/stable/concourse
