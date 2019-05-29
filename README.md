@@ -1,5 +1,7 @@
 # try-concourse
 
+First try ... https://github.com/concourse/concourse-docker
+
 # Set up
 
     docker-compose up -d
