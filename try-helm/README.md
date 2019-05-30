@@ -1,7 +1,9 @@
 # Pre-requisites
 
+Assuming trying on local machine
+
     brew install kubernetes-helm
-    minikube start
+    minikube --memory 8192 --cpus 2 start
     kubectl config use-context minikube
     helm init
 
